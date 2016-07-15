@@ -1,0 +1,316 @@
+{% extends '::base.html.twig' %}
+
+{% block contentHeader %}Add Product{% endblock %}
+
+{% block content %}
+
+    <section class="content">
+    <div class="row">
+
+        <div class="col-xs-1"></div>
+
+        <div class="col-xs-5">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Basic Information</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                        <div class="form-group">
+                            {{ form_start(basic_info_form, {'attr': {'role': 'form' }}) }}
+                            <label>Status:</label>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    {{ form_widget(basic_info_form.allow_sales) }}
+                                </div>
+                                <div class="col-xs-5">
+                                    {{ form_widget(basic_info_form.marketplaceShow) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            {{ form_widget(basic_info_form.name) }}
+                        </div>
+
+                    <div class="form-group">
+                        <label>Product Description</label>
+                        {{ form_widget(basic_info_form.description) }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category</label>
+                        {{ form_widget(basic_info_form.category) }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Keywords</label>
+                        {{ form_widget(basic_info_form.keywords) }}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quantity (0 - Unlimited)</label>
+                        {{ form_widget(basic_info_form.quantity) }}
+                    </div>
+
+                        <div class="form-group">
+                            <label>Currency:</label>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    {{ form_widget(basic_info_form.currency) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Product Price</label>
+                            {{ form_widget(basic_info_form.price) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Commission percentage</label>
+                            {{ form_widget(basic_info_form.commission) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support Email Address</label>
+                            {{ form_widget(basic_info_form.supportEmail) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support URL</label>
+                            {{ form_widget(basic_info_form.supportURL) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sales Page URL</label>
+                            {{ form_widget(basic_info_form.pageURL) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Return Period</label>
+                            <div class="row">
+                            <div class="col-xs-3">
+                                {{ form_widget(basic_info_form.returnPeriodNumber) }}
+                            </div>
+                            <div class="col-xs-7">
+                                {{ form_widget(basic_info_form.returnPeriodUnit) }}
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Affiliate Approval</label>
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    {{ form_widget(basic_info_form.affiliateApproval) }}
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+                    <div class="box-footer">
+                        <div class="row">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-8">
+                                <button type="submit" class="btn btn-block btn-primary">Save Product</button>
+                            </div>
+                            <div class="col-xs-2"></div>
+                        </div>
+                    </div>
+                {{ form_end(basic_info_form) }}
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-xs-5">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Advanced Features</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box box-solid collapsed-box">
+                    <form role="form">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Checkout Options</h3>
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Product Price</label>
+                            <input type="text" class="form-control" placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Commission percentage</label>
+                            <input type="text" class="form-control" placeholder="Ex. 30.0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support Email Address</label>
+                            <input type="text" class="form-control" placeholder="Support Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support URL</label>
+                            <input type="text" class="form-control" placeholder="Support URL">
+                        </div>
+                    </div>
+                        </form>
+                    <!-- /.box-body -->
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box box-solid collapsed-box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Marketplace Options</h3>
+
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        <div class="form-group">
+                            <label>Product Description</label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Keywords</label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category</label>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-2"></div>
+                            <div class="col-xs-8">
+                                <button type="submit" class="btn btn-block btn-primary">Save Product</button>
+                            </div>
+                            <div class="col-xs-2"></div>
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box box-solid collapsed-box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Dime Sale</h3>
+
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Product Price</label>
+                            <input type="text" class="form-control" placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Commission percentage</label>
+                            <input type="text" class="form-control" placeholder="Ex. 30.0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support Email Address</label>
+                            <input type="text" class="form-control" placeholder="Support Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support URL</label>
+                            <input type="text" class="form-control" placeholder="Support URL">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box box-solid collapsed-box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Autoresponder Integration</h3>
+
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Product Price</label>
+                            <input type="text" class="form-control" placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Commission percentage</label>
+                            <input type="text" class="form-control" placeholder="Ex. 30.0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support Email Address</label>
+                            <input type="text" class="form-control" placeholder="Support Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support URL</label>
+                            <input type="text" class="form-control" placeholder="Support URL">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box box-solid collapsed-box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Retargeting</h3>
+
+                        <div class="box-tools">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Product Price</label>
+                            <input type="text" class="form-control" placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Commission percentage</label>
+                            <input type="text" class="form-control" placeholder="Ex. 30.0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support Email Address</label>
+                            <input type="text" class="form-control" placeholder="Support Email">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Support URL</label>
+                            <input type="text" class="form-control" placeholder="Support URL">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+
+        <div class="col-xs-1"></div>
+
+    </div>
+    </section>
+{% endblock %}

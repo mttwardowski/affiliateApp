@@ -1,0 +1,93 @@
+{% extends '::base.html.twig' %}
+
+{% block contentHeader %}Category - {{ category.name }}{% endblock %}
+
+{% block content %}
+
+    <section class="content">
+    <div class="row">
+
+        <div class="col-xs-2">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Filter</h3>
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body no-padding" style="display: block;">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#"><i class="fa fa-bars"></i> Today</a></li>
+                        <li><a href="#"><i class="fa fa-bars"></i> Yesterday</a></li>
+                        <li><a href="#"><i class="fa fa-bars"></i> Last Week</a></li>
+                        <li><a href="#"><i class="fa fa-bars"></i> Last Month</a></li>
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-xs-10">
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Today</h3>
+
+                    <div class="box-tools">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a href="#">«</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">»</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                    {% if products is empty %}
+                        <div style="padding: 10px 0px; text-align: center;">
+                            <div class="text-muted">There are no products in this category.</div>
+                        </div>
+                    {% else %}
+                    <table class="table">
+                        <tbody><tr>
+                            <th style="width: 30px">ID</th>
+                            <th style="width: 120px">Product Name</th>
+                            <th>Popularity</th>
+                            <th style="width: 40px">Cut</th>
+                            <th>Description</th>
+                        </tr>
+                        {% for product in products %}
+                            <tr onclick="window.document.location='{{ path('product', {product_id: product.id} ) }}';">
+                                <td>{{ product.id }}</td>
+                                <td>{{ product.name }}</td>
+                                <td>
+                                    <div class="progress progress-xs">
+                                        <div class="progress-bar progress-bar-primary" style="width: 55%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-blue">{{ product.commission }}%</span></td>
+                                {% if product.description == null %}
+                                    <td>No Product Description</td>
+                                {% else %}
+                                    <td>{{ product.description }}</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+
+                        </tbody></table>
+                        {% endif %}
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </section>
+
+{% endblock %}

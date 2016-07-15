@@ -1,0 +1,16 @@
+{
+  "name": "affiliate",
+  "homepage": "https://github.com/mttwardowski/affiliateApp",
+  "description": "Online Affiliate Marketing App",
+  "main": "",
+  "author": "Matt Twardowski <mttwardowski@gmail.com>",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ]
+}

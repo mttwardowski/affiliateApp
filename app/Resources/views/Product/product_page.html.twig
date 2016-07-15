@@ -1,0 +1,176 @@
+{% extends '::base.html.twig' %}
+
+
+{% block contentHeader %}Product<small>#{{ product.id }}</small>{% endblock %}
+
+{% block content %}
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-3">
+
+                <!-- Profile Image -->
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                        <img class="profile-user-img img-responsive img-circle" src="{{ asset('uploads/users/1/matt.jpg') }}" alt="User profile picture">
+
+                        <h3 class="profile-username text-center">Affiliate Name</h3>
+
+                        <p class="text-muted text-center">Affiliate Title</p>
+
+                        <ul class="list-group list-group-unbordered">
+                            <li class="list-group-item">
+                                <b>Products</b> <a class="pull-right">1,322</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Sales</b> <a class="pull-right">543</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Affiliate Since</b> <a class="pull-right">July 8, 2016</a>
+                            </li>
+                        </ul>
+
+                        <a href="#" class="btn btn-primary btn-block"><b>View Affiliate Page</b></a>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#info" data-toggle="tab">Info</a></li>
+                        <li><a href="#request" data-toggle="tab">Request</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="info">
+                            <div class="row">
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            <h3>{{ product.sales }}</h3>
+
+                                            <p>Sold</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-green">
+                                        <div class="inner">
+                                            <h3>{{ product.commission }}<sup style="font-size: 20px">%</sup></h3>
+
+                                            <p>Commission</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-stats-bars"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-yellow">
+                                        <div class="inner">
+                                            <h3>{{ product.numberAffiliates }}</h3>
+
+                                            <p>Affiliates</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="ion ion-person-add"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-xs-6">
+                                    <!-- small box -->
+                                    <div class="small-box bg-aqua">
+                                        <div class="inner">
+                                            {% if product.quantity == 0 %}
+                                                <h3>&infin;</h3>
+                                            {% else %}
+                                                <h3>{{ product.quantity }}</h3>
+                                            {% endif %}
+
+                                            <p>Quantity</p>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="box box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Description</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <blockquote>
+                                                {% if product.description == null %}
+                                                    <td> No Product Description</td>
+                                                {% else %}
+                                                    <td>{{ product.description }}</td>
+                                                {% endif %}
+                                            </blockquote>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="request">
+                            <div class="row">
+                                {% if alreadyRequested %}
+                                    <div class="box-body clearfix">
+                                        <blockquote>
+                                            <p>Product Already Requested</p>
+                                        </blockquote>
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-12">
+                                        <div class="box box-primary">
+                                            <div class="box-header with-border">
+                                                <h3 class="box-title">Request Affiliate Approval</h3>
+                                            </div>
+                                            <!-- /.box-header -->
+                                            <!-- form start -->
+                                            {{ form_start(affiliateRequestForm, {'attr': {'role': 'form' }}) }}
+                                            <div class="form-group">
+                                                <label>Request Message</label>
+                                                {{ form_widget(affiliateRequestForm.message) }}
+                                            </div>
+                                            <div class="box-footer">
+                                                <button type="submit" class="btn btn-block btn-primary">Submit</button>
+                                            </div>
+                                            {{ form_end(affiliateRequestForm) }}
+                                        </div>
+                                        <!-- /.box -->
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- /.tab-pane -->
+
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+    </section>
+{% endblock %}

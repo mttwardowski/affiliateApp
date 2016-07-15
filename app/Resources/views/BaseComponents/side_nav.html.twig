@@ -1,0 +1,94 @@
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{{ asset('uploads/users/1/matt.jpg') }}" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>Matt Twardowski</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-male"></i> <span>My Account</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Profile</a></li>
+                    <li>
+                        <a href="#"><i class="fa fa-circle-o"></i> Products <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ path('my_products') }}"><i class="fa fa-circle-o"></i> All Products</a></li>
+                            <li><a href="{{ path('add_product') }}"><i class="fa fa-circle-o"></i> Add Product</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="{{ path('my_affiliates') }}"><i class="fa fa-circle-o"></i> My Affiliates</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Payments</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Subusers</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Autoresponders</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Categories</span>
+                    <span class="label label-primary pull-right">21</span>
+                </a>
+                <ul class="treeview-menu">
+                    {% for category in categories %}
+                    <li><a href="{{ path('category', {'category_id': category.id}) }} ) }}"><i class="fa fa-circle-o"></i> {{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-shopping-basket"></i>
+                    <span>Marketplace</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> All Products</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Find Products</a></li>
+                    <li><a href="{{ path('top_sellers') }}"><i class="fa fa-circle-o"></i> Top Sellers</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Featured Products</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-question"></i>
+                    <span>Support</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Seller</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Affiliate</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Account</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-book"></i> <span>About Us</span></a></li>
+            <li class="header">PRODUCTS</li>
+            <li><a href="{{ path('active_products') }}"><i class="fa fa-circle-o text-green"></i> <span>Active</span></a></li>
+            <li><a href="{{ path('pending_products') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Pending</span></a></li>
+            <li><a href="{{ path('inactive_products') }}"><i class="fa fa-circle-o text-red"></i> <span>Inactive</span></a></li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

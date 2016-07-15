@@ -1,0 +1,87 @@
+{% extends '::base.html.twig' %}
+
+{% block contentHeader %}Top Sellers{% endblock %}
+
+{% block content %}
+
+    <section class="content">
+
+    <div class="row">
+
+        <div class="col-xs-3">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Filter</h3>
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body no-padding" style="display: block;">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#" ><i class="fa fa-bars"></i> All Time</a></li>
+                        <li><a href="#"><i class="fa fa-bars"></i> Today</a></li>
+                        <li><a href="#"><i class="fa fa-bars"></i> Last Week</a></li>
+                        <li><a href="#"><i class="fa fa-bars"></i> Last Month</a></li>
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+
+        <div class="col-xs-9">
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">All Time Best Sellers</h3>
+
+                    <div class="box-tools">
+                        <ul class="pagination pagination-sm no-margin pull-right">
+                            <li><a href="#">«</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">»</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <table class="table">
+                        <tbody><tr>
+                            <th style="width: 30px">ID</th>
+                            <th style="width: 120px">Product Name</th>
+                            <th>Popularity</th>
+                            <th style="width: 40px">Cut</th>
+                            <th>Description</th>
+                        </tr>
+                        {% for product in top_products %}
+                            <tr onclick="window.document.location='{{ path('product', {product_id: product.id} ) }}';">
+                                <td>{{ product.id }}</td>
+                                <td>{{ product.name }}</td>
+                                <td>
+                                    <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-green">{{ product.commission }}%</span></td>
+                                {% if product.description == null %}
+                                    <td> No Product Description</td>
+                                {% else %}
+                                    <td>{{ product.description }}</td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+
+                        </tbody></table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+        </div>
+
+
+    </div>
+    </section>
+
+{% endblock %}

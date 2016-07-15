@@ -1,0 +1,15 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="login-box-body">
+        <p class="login-box-msg">Congratulations, {{ user.username }}! You have succesfully made an account</p>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <a href="/" class="btn btn-primary btn-block btn-flat">Go To Home</a>
+            </div>
+        </div>
+    </div>
+{% endblock fos_user_content %}
